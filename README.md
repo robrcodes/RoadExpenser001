@@ -6,6 +6,8 @@ This is a test application, implemented in Meteor JS to create a fast rapid deve
 
 [Demo](http://roadexpenser.meteor.com/) currently hosted on the Meteor test server.
 
+![Screen Capture](/images/screenshotdesign.png)
+
 ##Key Objectives for Prototype##
 
 - The application will allow user login/registration with email and password.
