@@ -1,0 +1,41 @@
+<template name="editLastExpenseLayout">
+  <!-- View to display the form to allow the last entered expense to be edited -->
+  <main>
+    <!-- Main Area of View -->
+    <div class="content-parent">
+      <div class="content-block">
+        <!-- form created with autoform package linked to schema in expenses.js -->
+        {{#autoForm collection="Expenses" doc=thisExpense id="editExpenseForm" type="update" class="edit-expense-form"}}
+        <fieldset>
+          Expense Type:{{> afFieldInput name='category' type="select"}}
+          <br>
+          <br> Amount:
+          <br> {{> afQuickField name='value' step="0.01" label=false}}
+
+          {{#if afFieldValueIs name="category" value="fuel"}} Odometer (optional):
+          <br> {{> afQuickField name='odometer' label=false}}
+
+          <br> {{/if}}
+          Location:
+          <br>{{> afQuickField name='locality' label=false}}
+
+          <!-- button to activate the geolocation api -->
+          <!-- <button class="setGeo btn uibtn-sm">Find Location</button> -->
+          <br> Note:
+          <br> {{> afQuickField name='comment' label=false}}
+          <br> {{> afQuickField name='tripId' label=false value=currTrip}} {{> afQuickField name='owner'}} {{> afQuickField name='createdAt'}} {{> afQuickField name='lat' value=geoLatExp}} {{> afQuickField name='lng' value=geoLngExp}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Update</button>
+        {{/autoForm}}
+
+      </div>
+      <div class="content-block">
+        <p>Add details to form above, manually enter a location/suburb.</p>
+      </div>
+
+    </div>
+    <!-- end of content-parent -->
+
+  </main>
+  <!-- end of main area -->
+</template>

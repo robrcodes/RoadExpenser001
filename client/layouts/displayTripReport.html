@@ -1,0 +1,40 @@
+<template name="displayTripReport">
+  <!-- View for showing the trip reports and summary along with the list of associated expenses -->
+  <main>
+
+    <div class="content-parent">
+
+      <div class="content-block">
+
+        <h2>{{tripName}}
+        </h2>
+
+        <button class="returnToList btn uibtn">Back to List</button>
+
+        <ul class="summary-list">
+          <li>
+            <h3>Trip Total: $ {{tripTotal}} </h3>
+          </li>
+          <li>Fuel : $ {{fuelTotal}} </li>
+          <li>Other : $ {{otherTotal}}</li>
+          <li>Distance : {{distTotal}} km</li>
+        </ul>
+
+        <button class="exportTrip btn uibtn">Export Trip Data</button>
+
+      </div>
+
+      <div class="content-block">
+        <table class="list-expenses">
+          <caption>Associated Expenses</caption>
+          {{#each expenses}} {{> expense}} {{/each}}
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</template>

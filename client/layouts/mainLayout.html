@@ -1,0 +1,27 @@
+<template name="mainLayout">
+  <!-- This view is the container for many of the other templates, providing the header html in a single location, with the exception of a few views -->
+  <div class="container">
+
+    <header>
+      <div class="name-title">
+        <h1>
+          <span class="glyphicon glyphicon-road" aria-hidden="true"></span> {{pageTitle}}</h1>
+      </div>
+
+      <div class="settings-link">
+        <!-- only home icon if user is signed in -->
+        {{#if currentUser}}
+        <h1>
+          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+        </h1>
+        {{/if}}
+      </div>
+
+    </header>
+    <main>
+      <!-- this tag represents the placeholder for sub views which use this template as a container -->
+      {{> Template.dynamic template=main}}
+
+    </main>
+  </div>
+</template>

@@ -1,0 +1,10 @@
+<template name="expense">
+  <!-- Sub template to display expenses in the displayTripReport view -->
+  <tr>
+    <!-- following fields display in a foreach method from all associated expense documents in the database -->
+    <td>$ {{value}} </td>
+    <td> {{category}} </td>
+    <td> {{createdAtFormatted}}
+      <br>{{shortAddress}} </td>
+  </tr>
+</template>

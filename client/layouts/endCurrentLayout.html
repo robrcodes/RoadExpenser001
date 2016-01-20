@@ -1,0 +1,43 @@
+<template name="endCurrentLayout">
+  <!-- View showing form used to end the current trip, adding details -->
+  <main>
+    <!-- Main Area of View -->
+    <div class="content-parent">
+
+      <div class="content-block">
+        <h2>{{tripName}}</h2>
+        <!-- form built with autoform package linked to schema in trips.js -->
+        {{#autoForm collection="Trips" doc=thisTrip id="endTripForm" type="update" class="end-trip-form"}}
+        <fieldset>
+          Odometer:
+          <br> {{> afQuickField name='odoEnd' label=false}}
+          <br>
+          <br> Location: {{> afQuickField name='localityEnd' value=geoAdd label=false}}
+          <button class="setGeo btn uibtn-sm">Find Location</button>
+          <br>
+          <br> Comment:
+          <br> {{> afQuickField name='commentEnd' label=false}}
+          <br>
+          <br> {{> afQuickField name='tripOwner'}} {{> afQuickField name='dateEnd'}} {{> afQuickField name='latEnd' value=geoLatTrip}} {{> afQuickField name='lngEnd' value=geoLngTrip}} {{> afQuickField name='tripFinished' value=true}}
+        </fieldset>
+        <button type="submit" class="btn uibtn">Submit End</button>
+        {{/autoForm}}
+
+      </div>
+
+      <div class="content-block">
+        <p>
+          <strong>You Will NOT be able to make any additions to the current Trip once this form is submitted!</strong>
+        </p>
+        <p>This form enables you to add details recording the end of your trip. As with other forms in this application. you can manually enter a location/suburb or click the
+          <strong>'Find Location'</strong> button to let your device determine an approximate position. Your device may ask for permision to allow the geo location script to run - select yes to continue with automation.</p>
+
+      </div>
+
+    </div>
+    <!-- end of content-parent -->
+
+  </main>
+  <!-- end of main area -->
+
+</template>

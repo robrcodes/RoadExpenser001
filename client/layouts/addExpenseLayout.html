@@ -1,0 +1,39 @@
+<template name="addExpenseLayout">
+  <!-- View for the Add New Expense -->
+  <main>
+    <!-- Main Area of View -->
+    <div class="content-parent">
+      <div class="content-block">
+        <!-- Form built using autoform package and schema in expenses.js -->
+        {{#autoForm collection="Expenses" id="addExpenseLayout" type="insert"}}
+        <fieldset>
+          Expense Type:{{> afFieldInput name='category' type="select"}}
+          <br>
+          <br> Amount:
+          <br> {{> afQuickField name='value' step="0.01" label=false}}
+
+          <br> {{#if afFieldValueIs name="category" value="fuel"}} Odometer (optional):
+          <br> {{> afQuickField name='odometer' label=false}}
+          <br> {{/if}} {{> afQuickField name='locality' value=geoAddExp label=false}}
+          <!-- button to activate the geolocation api -->
+          <button class="setGeo btn uibtn-sm">Find Location</button>
+          <br> Note:
+          <br> {{> afQuickField name='comment' label=false}}
+          <br> {{> afQuickField name='tripId' label=false value=currTrip}} {{> afQuickField name='owner'}} {{> afQuickField name='createdAt'}} {{> afQuickField name='lat' value=geoLatExp}} {{> afQuickField name='lng' value=geoLngExp}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Insert</button>
+        {{/autoForm}}
+
+      </div>
+      <div class="content-block">
+        <!-- Instructions -->
+        <p>Add details to form above, manually enter a location/suburb or click the
+          <strong>'Find Location'</strong> button to let your device determine an approximate position. Your device may ask for permision to allow the geo location script to run - select yes to continue with automation.</p>
+      </div>
+
+    </div>
+    <!-- end of content-parent -->
+
+  </main>
+  <!-- end of main area -->
+</template>

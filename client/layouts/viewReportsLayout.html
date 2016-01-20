@@ -1,0 +1,28 @@
+<template name="viewReportsLayout">
+  <!-- This view shows a list of the trips available to view reports on, each is listed as a button using the sub template mytripsTemplate -->
+  <main> <!-- Main Area of View -->
+    <div class="content-parent">
+
+      <div class="content-block">
+        <ul class="triplist">
+          <li>
+            <h3>List of Trips</h3>
+          </li>
+          <!-- call to cycle through list of all trips via mytripsTemplate -->
+          {{#each mytrips}}
+            {{> mytrip}}
+          {{/each}}
+        </ul>
+
+      </div>
+
+      <div class="content-block">
+        <p>Click on the button labelled with the name of the trip you want to see reporting for.</p>
+
+      </div>
+
+    </div> <!-- end of content-parent -->
+
+  </main> <!-- end of main area -->
+
+</template>

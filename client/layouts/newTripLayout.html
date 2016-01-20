@@ -1,0 +1,39 @@
+<template name="newTripLayout">
+  <!-- View to enter a new trip -->
+  <main>
+    <!-- Main Area of View -->
+    <div class="content-parent">
+
+      <div class="content-block">
+        <!-- form using autoform package linked to schema in trips.js file -->
+        {{#autoForm collection="Trips" id="insertTripForm" type="insert" class="new-trip-form"}}
+        <fieldset>
+          New Trip Name:
+          <br> {{> afFieldInput name='name' label=false}}
+          <br>
+          <br> Odometer:
+          <br> {{> afQuickField name='odoStart' label=false}}
+          <br> Location: {{> afQuickField name='localityStart' value=geoAdd label=false}}
+          <button class="setGeo btn uibtn-sm">Find Location</button>
+          <br>
+          <br> Comment:
+          <br> {{> afQuickField name='commentStart' label=false}}
+          <br> {{> afQuickField name='tripOwner'}} {{> afQuickField name='dateStart'}} {{> afQuickField name='latStart' value=geoLatTrip}} {{> afQuickField name='lngStart' value=geoLngTrip}}
+        </fieldset>
+        <button type="submit" class="btn">Insert</button>
+        {{/autoForm}}
+      </div>
+
+      <div class="content-block">
+        <p>Add details to form above, manually enter a location/suburb or click the
+          <strong>'Find Location'</strong> button to let your device determine an approximate position. Your device may ask for permision to allow the geo location script to run - select yes to continue with automation.</p>
+
+      </div>
+
+    </div>
+    <!-- end of content-parent -->
+
+  </main>
+  <!-- end of main area -->
+
+</template>

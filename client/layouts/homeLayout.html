@@ -1,0 +1,96 @@
+<template name="homeLayout">
+  <!-- View for the intial home page -->
+  <div class="container">
+
+    <header>
+      <div class="name-title">
+        <h1>
+          <span class="glyphicon glyphicon-road" aria-hidden="true"></span> Road Expenser</h1>
+      </div>
+
+      <div class="settings-link">
+        {{#if currentUser}}
+        <h1>
+          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        </h1>
+        {{/if}}
+      </div>
+
+    </header>
+
+
+    <main>
+      <!-- Main Area of Home View -->
+      <div class="content-parent">
+        <!-- When a user is not signed in -->
+        {{#unless currentUser}}
+        <div class="login-details">
+          <h2>Please Sign in</h2>
+          {{> loginButtons}}
+        </div>
+        <div class="content-block">
+          <h2>Welcome to Road Expenser</h2>
+          <p>
+            Please sign in to get started.</p>
+          <p>If you don't have an account you can simply create one using an email address and password. Click on the 'Create account' link under the sign in button above.</p>
+        </div>
+        {{/unless}}
+
+        <div class="content-block">
+          <!-- Show if user signed in -->
+          {{#if currentUser}}
+          <!-- Show when there is no active / current trip -->
+          {{#unless isTrip}}
+          <div>
+            <h2>Make a New Trip to get started</h2>
+          </div>
+          <!-- {{#unless isTrip}} -->
+
+          <button class="createNewTrip btn uibtn">Make New Trip</button>
+          <!-- {{/unless}} -->
+          {{/unless}}
+
+          <!-- Placeholder for the current trip name -->
+          <h2>{{tripName}}</h2>
+
+          <button class="viewReports btn uibtn">View Reports</button>
+
+          <!-- Show following trip summary/calculations if there is a trip -->
+          {{#if isTrip}}
+          <ul class="summary-list">
+            <li>
+              <h3>Trip Total: $ {{tripTotal}} </h3>
+            </li>
+            <li>Fuel : $ {{fuelTotal}} </li>
+            <li>Other : $ {{otherTotal}}</li>
+            <li>Distance : {{distTotal}} km</li>
+          </ul>
+
+          <button class="addExpense btn uibtn">Add New Expense</button>
+
+          {{/if}} {{/if}}
+        </div>
+
+        <!-- Show the following content if user is signed in -->
+        {{#if currentUser}}
+        <div class="content-block">
+          <!-- Show this instruction is user needs to create a new trip -->
+          {{#unless isTrip}}
+          <p>To get started you need to create a new trip, once you have done that you will be able to add expenses along the way.</p>
+          {{/unless}}
+
+          <p>More options can be accessed on the Settings screen, click on the cog icon at the top right of this screen, only visible when you are signed in.</p>
+          {{#if isTrip}} {{/if}}
+        </div>
+
+        {{/if}}
+
+      </div>
+      <!-- end of content-parent -->
+
+    </main>
+    <!-- end of main area -->
+
+  </div>
+  <!-- end of container -->
+</template>

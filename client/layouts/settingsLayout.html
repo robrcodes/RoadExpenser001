@@ -1,0 +1,46 @@
+<template name="settingsLayout">
+  <!-- View for the Settings page -->
+  <main>
+    <!-- Main Area of Home View -->
+    <div class="content-parent">
+
+      <div class="login-details">
+        <!-- show only if user is signed out -->
+        {{#unless currentUser}}
+        <!-- {{> loginButtons}} -->
+        <button class="returnhome btn uibtn">Return to Sign In</button>
+        {{/unless}}
+      </div>
+
+      <div class="content-block">
+        <!-- show if user is signed in -->
+        {{#if currentUser}}
+
+        <div class="login-details">
+          {{> loginButtons}}
+        </div>
+
+        <!-- display below if there is an active trip  -->
+        {{#if isTrip}}
+        <button class="endCurrentTrip btn uibtn">End Current Trip</button>
+        <button class="btn uibtn edit-last-expense">Edit Last Expense</button>
+        {{/if}}
+
+        <h3>Instructions:</h3>
+        <p>Finish the current trip using the 'End Current Trip' option located on the Settings screen.</p>
+        <p>Edit the last entered Expense using the 'Edit Last Expense' option also location on the Settings screen.</p>
+        <p>Return to the
+          <strong>Home</strong> screen clicking on the house icon at the top right of this screen.</p>
+
+        {{/if}}
+        <!-- end of if currentUser -->
+      </div>
+
+
+    </div>
+    <!-- end content-parent -->
+
+  </main>
+  <!-- end of main area -->
+
+</template>
