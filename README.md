@@ -4,7 +4,7 @@
 
 This is a test application, implemented in Meteor JS to create a fast rapid development prototype. It is not a completed application and is still far from even being what could be called Alpha stage. Final application is most likely to be developed using another JavaScript based technology.
 
-[Demo](http://roadexpenser.meteor.com/) currently hosted on the Meteor test server.
+~~[Demo](http://roadexpenser.meteor.com/) currently hosted on the Meteor test server.~~
 
 ![Screen Capture](/images/screenshotdesign.png)
 
