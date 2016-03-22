@@ -5,6 +5,7 @@
 This is a test application, implemented in Meteor JS to create a fast rapid development prototype. It is not a completed application and is still far from even being what could be called Alpha stage. Final application is most likely to be developed using another JavaScript based technology.
 
 ~~[Demo](http://roadexpenser.meteor.com/) currently hosted on the Meteor test server.~~
+A Demo is no longer available after 25th March 2016 due to the end of free hosting by Meteor.com (read [this](https://forums.meteor.com/t/meteor-com-free-hosting-ends-march-25-2016/19308) post for further info).
 
 ![Screen Capture](/images/screenshotdesign.png)
 
