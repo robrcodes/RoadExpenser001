@@ -9,6 +9,10 @@ A Demo is no longer available after 25th March 2016 due to the end of free hosti
 
 ![Screen Capture](/images/screenshotdesign.png)
 
+###Future Plans###
+
+Create another version of this application using an alternate technology, possibly with React front end, or even using React Native.
+
 ##Key Objectives for Prototype##
 
 - The application will allow user login/registration with email and password.
